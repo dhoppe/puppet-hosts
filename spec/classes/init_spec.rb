@@ -3,7 +3,8 @@ require 'spec_helper'
 describe 'hosts', :type => :class do
   ['Debian'].each do |osfamily|
     let(:facts) {{
-      :osfamily => osfamily,
+      :osfamily  => osfamily,
+      :ipaddress => '10.0.2.15'
     }}
 
     it { is_expected.to compile.with_all_deps }

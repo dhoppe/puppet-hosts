@@ -3,7 +3,8 @@ require 'spec_helper'
 describe 'hosts::define', :type => :define do
   ['Debian'].each do |osfamily|
     let(:facts) {{
-      :osfamily => osfamily,
+      :osfamily  => osfamily,
+      :ipaddress => '10.0.2.15'
     }}
     let(:pre_condition) { 'include hosts' }
     let(:title) { 'hosts' }
