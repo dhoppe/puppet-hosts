@@ -1,6 +1,6 @@
 {
   "name": "dhoppe-hosts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Dennis Hoppe",
   "summary": "This module configures the Hosts file.",
   "license": "Apache 2.0",
