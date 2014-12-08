@@ -1,3 +1,7 @@
+## 2014-12-08 Release 1.0.3
+### Summary:
+- [Puppet] Add support for IPv6
+
 ## 2014-12-06 Release 1.0.2
 ### Summary:
 - [Rspec] Made some changes to the build environment
