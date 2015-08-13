@@ -13,6 +13,7 @@ describe 'hosts::define', :type => :define do
     context "on #{osfamily}" do
       context 'when source file' do
         let(:params) {{
+          :config_file_path   => '/etc/hosts.2nd',
           :config_file_source => 'puppet:///modules/hosts/wheezy/etc/hosts',
         }}
 
@@ -27,6 +28,7 @@ describe 'hosts::define', :type => :define do
 
       context 'when content string' do
         let(:params) {{
+          :config_file_path   => '/etc/hosts.3rd',
           :config_file_string => '# THIS FILE IS MANAGED BY PUPPET',
         }}
 
@@ -41,6 +43,7 @@ describe 'hosts::define', :type => :define do
 
       context 'when content template' do
         let(:params) {{
+          :config_file_path     => '/etc/hosts.4th',
           :config_file_template => 'hosts/wheezy/etc/hosts.erb',
         }}
 
@@ -55,6 +58,7 @@ describe 'hosts::define', :type => :define do
 
       context 'when content template (custom)' do
         let(:params) {{
+          :config_file_path         => '/etc/hosts.5th',
           :config_file_template     => 'hosts/wheezy/etc/hosts.erb',
           :config_file_options_hash => {
             'key' => 'value',
