@@ -16,71 +16,71 @@ describe 'hosts', :type => :class do
     it { is_expected.to contain_anchor('hosts::end') }
 
     context "on #{osfamily}" do
-#      describe 'hosts::install' do
-#        context 'defaults' do
-#          it do
-#            is_expected.to contain_package('hosts').with({
-#              'ensure' => 'present',
-#            })
-#          end
-#        end
-#
-#        context 'when package latest' do
-#          let(:params) {{
-#            :package_ensure => 'latest',
-#          }}
-#
-#          it do
-#            is_expected.to contain_package('hosts').with({
-#              'ensure' => 'latest',
-#            })
-#          end
-#        end
-#
-#        context 'when package absent' do
-#          let(:params) {{
-#            :package_ensure => 'absent',
-#          }}
-#
-#          it do
-#            is_expected.to contain_package('hosts').with({
-#              'ensure' => 'absent',
-#            })
-#          end
-#          it do
-#            is_expected.to contain_file('hosts.conf').with({
-#              'ensure'  => 'present',
-#              'require' => nil,
-#            })
-#          end
-#        end
-#
-#        context 'when package purged' do
-#          let(:params) {{
-#            :package_ensure => 'purged',
-#          }}
-#
-#          it do
-#            is_expected.to contain_package('hosts').with({
-#              'ensure' => 'purged',
-#            })
-#          end
-#          it do
-#            is_expected.to contain_file('hosts.conf').with({
-#              'ensure'  => 'absent',
-#              'require' => nil,
-#            })
-#          end
-#        end
-#      end
+      # describe 'hosts::install' do
+      #   context 'defaults' do
+      #     it do
+      #       is_expected.to contain_package('hosts').with(
+      #         'ensure' => 'present',
+      #       )
+      #     end
+      #   end
+
+      #   context 'when package latest' do
+      #     let(:params) {{
+      #       :package_ensure => 'latest',
+      #     }}
+
+      #     it do
+      #       is_expected.to contain_package('hosts').with(
+      #         'ensure' => 'latest',
+      #       )
+      #     end
+      #   end
+
+      #   context 'when package absent' do
+      #     let(:params) {{
+      #       :package_ensure => 'absent',
+      #     }}
+
+      #     it do
+      #       is_expected.to contain_package('hosts').with(
+      #         'ensure' => 'absent',
+      #       )
+      #     end
+      #     it do
+      #       is_expected.to contain_file('hosts.conf').with(
+      #         'ensure'  => 'present',
+      #         'require' => nil,
+      #       )
+      #     end
+      #   end
+
+      #   context 'when package purged' do
+      #     let(:params) {{
+      #       :package_ensure => 'purged',
+      #     }}
+
+      #     it do
+      #       is_expected.to contain_package('hosts').with(
+      #         'ensure' => 'purged',
+      #       )
+      #     end
+      #     it do
+      #       is_expected.to contain_file('hosts.conf').with(
+      #         'ensure'  => 'absent',
+      #         'require' => nil,
+      #       )
+      #     end
+      #   end
+      # end
 
       describe 'hosts::config' do
         context 'defaults' do
           it do
-            is_expected.to contain_file('hosts.conf').with({
+            is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
               'require' => nil,
-            })
+            )
           end
         end
 
@@ -90,14 +90,14 @@ describe 'hosts', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('hosts.dir').with({
+            is_expected.to contain_file('hosts.dir').with(
               'ensure'  => 'directory',
               'force'   => false,
               'purge'   => false,
               'recurse' => true,
               'source'  => 'puppet:///modules/hosts/wheezy/etc/hosts',
               'require' => nil,
-            })
+            )
           end
         end
 
@@ -108,14 +108,14 @@ describe 'hosts', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('hosts.dir').with({
+            is_expected.to contain_file('hosts.dir').with(
               'ensure'  => 'directory',
               'force'   => true,
               'purge'   => true,
               'recurse' => true,
               'source'  => 'puppet:///modules/hosts/wheezy/etc/hosts',
               'require' => nil,
-            })
+            )
           end
         end
 
@@ -125,11 +125,11 @@ describe 'hosts', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('hosts.conf').with({
+            is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
               'source'  => 'puppet:///modules/hosts/wheezy/etc/hosts',
               'require' => nil,
-            })
+            )
           end
         end
 
@@ -139,11 +139,11 @@ describe 'hosts', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('hosts.conf').with({
+            is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'require' => nil,
-            })
+            )
           end
         end
 
@@ -153,11 +153,11 @@ describe 'hosts', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('hosts.conf').with({
+            is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'require' => nil,
-            })
+            )
           end
         end
 
@@ -170,11 +170,11 @@ describe 'hosts', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('hosts.conf').with({
+            is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'require' => nil,
-            })
+            )
           end
         end
       end
