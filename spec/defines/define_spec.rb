@@ -18,11 +18,11 @@ describe 'hosts::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_hosts').with({
+          is_expected.to contain_file('define_hosts').with(
             'ensure'  => 'present',
             'source'  => 'puppet:///modules/hosts/wheezy/etc/hosts',
             'require' => nil,
-          })
+          )
         end
       end
 
@@ -33,11 +33,11 @@ describe 'hosts::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_hosts').with({
+          is_expected.to contain_file('define_hosts').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'require' => nil,
-          })
+          )
         end
       end
 
@@ -48,11 +48,11 @@ describe 'hosts::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_hosts').with({
+          is_expected.to contain_file('define_hosts').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'require' => nil,
-          })
+          )
         end
       end
 
@@ -66,11 +66,11 @@ describe 'hosts::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_hosts').with({
+          is_expected.to contain_file('define_hosts').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'require' => nil,
-          })
+          )
         end
       end
     end

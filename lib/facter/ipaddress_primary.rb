@@ -1,4 +1,4 @@
-Facter.add("ipaddress_primary") do
+Facter.add('ipaddress_primary') do
   setcode do
     if Facter.value('ipaddress_eth0')
       Facter.value('ipaddress_eth0')
