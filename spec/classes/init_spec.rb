@@ -1,12 +1,14 @@
 require 'spec_helper'
 
-describe 'hosts', :type => :class do
+describe 'hosts', type: :class do
   ['Debian'].each do |osfamily|
-    let(:facts) {{
-      :osfamily          => osfamily,
-      :ipaddress_primary => '10.0.2.15',
-      :ipaddress6        => 'fe80::a00:27ff:feb7:c757'
-    }}
+    let(:facts) do
+      {
+        osfamily: osfamily,
+        ipaddress_primary: '10.0.2.15',
+        ipaddress6: 'fe80::a00:27ff:feb7:c757'
+      }
+    end
 
     it { is_expected.to compile.with_all_deps }
     it { is_expected.to contain_anchor('hosts::begin') }
@@ -79,15 +81,17 @@ describe 'hosts', :type => :class do
           it do
             is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
-              'require' => nil,
+              'require' => nil
             )
           end
         end
 
         context 'when source dir' do
-          let(:params) {{
-            :config_dir_source => 'puppet:///modules/hosts/wheezy/etc/hosts',
-          }}
+          let(:params) do
+            {
+              config_dir_source: 'puppet:///modules/hosts/wheezy/etc/hosts'
+            }
+          end
 
           it do
             is_expected.to contain_file('hosts.dir').with(
@@ -96,16 +100,18 @@ describe 'hosts', :type => :class do
               'purge'   => false,
               'recurse' => true,
               'source'  => 'puppet:///modules/hosts/wheezy/etc/hosts',
-              'require' => nil,
+              'require' => nil
             )
           end
         end
 
         context 'when source dir purged' do
-          let(:params) {{
-            :config_dir_purge  => true,
-            :config_dir_source => 'puppet:///modules/hosts/wheezy/etc/hosts',
-          }}
+          let(:params) do
+            {
+              config_dir_purge: true,
+              config_dir_source: 'puppet:///modules/hosts/wheezy/etc/hosts'
+            }
+          end
 
           it do
             is_expected.to contain_file('hosts.dir').with(
@@ -114,66 +120,74 @@ describe 'hosts', :type => :class do
               'purge'   => true,
               'recurse' => true,
               'source'  => 'puppet:///modules/hosts/wheezy/etc/hosts',
-              'require' => nil,
+              'require' => nil
             )
           end
         end
 
         context 'when source file' do
-          let(:params) {{
-            :config_file_source => 'puppet:///modules/hosts/wheezy/etc/hosts',
-          }}
+          let(:params) do
+            {
+              config_file_source: 'puppet:///modules/hosts/wheezy/etc/hosts'
+            }
+          end
 
           it do
             is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
               'source'  => 'puppet:///modules/hosts/wheezy/etc/hosts',
-              'require' => nil,
+              'require' => nil
             )
           end
         end
 
         context 'when content string' do
-          let(:params) {{
-            :config_file_string => '# THIS FILE IS MANAGED BY PUPPET',
-          }}
+          let(:params) do
+            {
+              config_file_string: '# THIS FILE IS MANAGED BY PUPPET'
+            }
+          end
 
           it do
             is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
-              'content' => /THIS FILE IS MANAGED BY PUPPET/,
-              'require' => nil,
+              'content' => %r{THIS FILE IS MANAGED BY PUPPET},
+              'require' => nil
             )
           end
         end
 
         context 'when content template' do
-          let(:params) {{
-            :config_file_template => 'hosts/wheezy/etc/hosts.erb',
-          }}
+          let(:params) do
+            {
+              config_file_template: 'hosts/wheezy/etc/hosts.erb'
+            }
+          end
 
           it do
             is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
-              'content' => /THIS FILE IS MANAGED BY PUPPET/,
-              'require' => nil,
+              'content' => %r{THIS FILE IS MANAGED BY PUPPET},
+              'require' => nil
             )
           end
         end
 
         context 'when content template (custom)' do
-          let(:params) {{
-            :config_file_template     => 'hosts/wheezy/etc/hosts.erb',
-            :config_file_options_hash => {
-              'key' => 'value',
-            },
-          }}
+          let(:params) do
+            {
+              config_file_template: 'hosts/wheezy/etc/hosts.erb',
+              config_file_options_hash: {
+                'key' => 'value'
+              }
+            }
+          end
 
           it do
             is_expected.to contain_file('hosts.conf').with(
               'ensure'  => 'present',
-              'content' => /THIS FILE IS MANAGED BY PUPPET/,
-              'require' => nil,
+              'content' => %r{THIS FILE IS MANAGED BY PUPPET},
+              'require' => nil
             )
           end
         end
