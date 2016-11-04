@@ -1,23 +1,19 @@
 require 'spec_helper'
 
 describe 'hosts', type: :class do
-  ['Debian'].each do |osfamily|
-    let(:facts) do
-      {
-        osfamily: osfamily,
-        ipaddress_primary: '10.0.2.15',
-        ipaddress6: 'fe80::a00:27ff:feb7:c757'
-      }
-    end
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
 
-    it { is_expected.to compile.with_all_deps }
-    it { is_expected.to contain_anchor('hosts::begin') }
-    it { is_expected.to contain_class('hosts::params') }
-    it { is_expected.to contain_class('hosts::install') }
-    it { is_expected.to contain_class('hosts::config') }
-    it { is_expected.to contain_anchor('hosts::end') }
+      it { is_expected.to compile.with_all_deps }
+      it { is_expected.to contain_anchor('hosts::begin') }
+      it { is_expected.to contain_class('hosts::params') }
+      it { is_expected.to contain_class('hosts::install') }
+      it { is_expected.to contain_class('hosts::config') }
+      it { is_expected.to contain_anchor('hosts::end') }
 
-    context "on #{osfamily}" do
       # describe 'hosts::install' do
       #   context 'defaults' do
       #     it do

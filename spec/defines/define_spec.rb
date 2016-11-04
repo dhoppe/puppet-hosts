@@ -1,18 +1,15 @@
 require 'spec_helper'
 
 describe 'hosts::define', type: :define do
-  ['Debian'].each do |osfamily|
-    let(:facts) do
-      {
-        osfamily: osfamily,
-        ipaddress_primary: '10.0.2.15',
-        ipaddress6: 'fe80::a00:27ff:feb7:c757'
-      }
-    end
-    let(:pre_condition) { 'include hosts' }
-    let(:title) { 'hosts' }
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
 
-    context "on #{osfamily}" do
+      let(:pre_condition) { 'include hosts' }
+      let(:title) { 'hosts' }
+
       context 'when source file' do
         let(:params) do
           {
