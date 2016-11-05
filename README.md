@@ -1,10 +1,11 @@
 # hosts
 
 [![Build Status](https://travis-ci.org/dhoppe/puppet-hosts.png?branch=master)](https://travis-ci.org/dhoppe/puppet-hosts)
+[![Code Coverage](https://coveralls.io/repos/github/dhoppe/puppet-hosts/badge.svg?branch=master)](https://coveralls.io/github/dhoppe/puppet-hosts)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/dhoppe/hosts.svg)](https://forge.puppetlabs.com/dhoppe/hosts)
-[![Puppet Forge](https://img.shields.io/puppetforge/dt/dhoppe/hosts.svg)](https://forge.puppetlabs.com/dhoppe/hosts)
-[![Puppet Forge](https://img.shields.io/puppetforge/mc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
-[![Puppet Forge](https://img.shields.io/puppetforge/rc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/dhoppe/hosts.svg)](https://forge.puppetlabs.com/dhoppe/hosts)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/dhoppe/hosts.svg)](https://forge.puppetlabs.com/dhoppe/hosts)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/dhoppe/hosts.svg)](https://forge.puppetlabs.com/dhoppe/hosts)
 
 #### Table of Contents
 
